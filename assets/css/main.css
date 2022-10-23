@@ -1,0 +1,21 @@
+.uskunalar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.uskunalar form {
+    display: flex;
+}
+
+.uskunalar input:not(:last-child){
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+button a{
+    color: azure;
+}
+
+.section-title{
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% load static %}
+{% block link %} {% static "css/add_students.css" %} {% endblock link %}
+
+{% block content %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="section-title">
+            <h3>O'quvchi qo'shish</h3>
+            {% if status %}
+            <h3 class="succsess" style="text-align: center;">Muaffaqiyatli qo'shildi!</h3>
+            {% endif %}
+        </div>
+        <form action="" method="post" > {% csrf_token %}
+            <div class="add_students mt-4">
+                <div class="first">
+                    <input  type="text" id="name" name="name" placeholder="Guruh nomi:" >
+                    <input type="text" name="vaqt" id="shartnoma_raqam" placeholder="Dars vaqti:">
+                </div>
+                <div class="last">
+                    <div>
+                        <label for="teacher">Biriktirilgan o'qtuvchi:</label>
+                        <select name="teacher" id="teacher">
+                            {% for teacher in teachers %}                  
+                            <option value="{{ teacher.id }}">{{ teacher.first_name }} {{ teacher.last_name  }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="acceptance_date">Ochilgan kun: </label>
+                        <input type="date" name="acceptance_date" id="acceptance_date">
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary mt-4" value="Saqlash">
+            
+        </form>
+    </div>
+</div>
+{% endblock content %}

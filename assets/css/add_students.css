@@ -1,0 +1,39 @@
+.add_students{
+    display: flex;
+}
+
+.add_students > div{
+    width: 50%;
+}
+
+form{
+    text-align: right;
+}
+
+.add_students input, select{
+    padding: 10px 20px;
+    margin: 10px;
+    margin-left: 0;
+    font-size: 18px;
+    outline: none !important;
+    border-radius: 3px;
+    border: 1px solid chartreuse;
+
+}
+
+.first input{
+    width: 100%;
+}
+
+select option{
+    width: 50%;
+}
+
+.last input , select{
+    width: 60%;
+}
+
+label{
+    font-size: 18px;
+}
+

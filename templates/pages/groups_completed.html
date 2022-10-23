@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="uskunalar mb-3">
+      <form action="" method="post">
+        <input type="text" name="q" placeholder="Qidirish..." >
+        <input type="submit" value="Qidirish" class="btn btn-primary">
+        
+      </div>
+      
+      <div class="section-title"><h4>Tugatilgan guruhlar</h4></div>
+      
+      {% if students %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Guruh nomi</th>
+            <th scope="col">Ochilgan sana</th>
+            <th scope="col">Yopilgan sana</th>
+            <th scope="col">Biriktirilgan o'qituvchi</th>
+            <th scope="col">O'quvchilar</th>
+            <th scope="col">Amallar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.acceptance_date }}</td>
+            <td>{{ student.vaqt }}</td>
+            <td>{{ student.teacher }}</td>
+            <td><a href="{% url 'groups_students' pk=student.pk %}">Batafsil</a></td>
+            
+            
+            <td><a href="{% url 'groups_update' pk=student.pk %}">Tahrirlash</a> / <a href="{% url 'groups_delete' pk=student.pk %}">O'chirish</a></td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+      
+      {% else %}
+      <p style="text-align:center; background-color: brown; color: azure;margin-top: 2rem; padding: 10px;border-radius: 10px;">Bitirgan guruhlar mavjud emas!</p>
+      {% endif %}
+      
+      
+    </div>
+  </div>
+  {% endblock content %}

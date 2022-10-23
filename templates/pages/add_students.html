@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+{% load static %}
+{% block link %} {% static "css/add_students.css" %} {% endblock link %}
+
+{% block content %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="section-title">
+            <h3>O'quvchi qo'shish</h3>
+        </div>
+        <form action="" method="post" > {% csrf_token %}
+            <div class="add_students mt-4">
+                <div class="first">
+                    <input  type="text" id="first_name" name="first_name" placeholder="Ismi va familiya" >
+                    <input type="number" name="phone_number" id="phone_number" placeholder="Telefon raqam:">
+                    <input type="email" name="email" id="email" placeholder="Email manzil:">
+                    <input type="text" name="shartnoma_raqam" id="shartnoma_raqam" placeholder="Shartnoma raqami:">
+                    <input type="text" name="PINFL_number" id="PINFL_number" placeholder="PINFL raqam:">
+                </div>
+                <div class="last">
+                    <div>
+                        <label for="birthday">Tug'ilgan kun: </label>
+                        <input type="date" name="birthday" id="birthday" placeholder="Tug'ilgan kun:">
+                    </div>
+                    
+                    <div>
+                        <label for="acceptance_date">Qabul qilingan sana:</label>
+                        <input type="date" id="date"  name="acceptance_date" placeholder="Qabul qilingan sana">
+                        
+                    </div>
+                    <div>
+                        <label for="group">Guruhni tanlang:</label>
+                        <select name="group" id="group">
+                            {% for group in groups %}                  
+                            <option value="{{ group.id }}">{{ group.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="region">Viloyatni tanlang:</label>
+                        <select name="region" id="region">
+                            {% for key, value in regions.items %}
+                            <option value="{{ key }}">{{ value }}</option>                  
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <input type="text" name="district" id="district" placeholder="Tumanni va manzilni kiriting:">
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary mt-4" value="Saqlash">
+            
+        </form>
+    </div>
+</div>
+{% endblock content %}
