@@ -22,6 +22,7 @@
           <th scope="col">#</th>
           <th scope="col">Guruh nomi</th>
           <th scope="col">Dars vaqti</th>
+          <th scope="col">Dars narxi/oylik</th>
           <th scope="col">Biriktirilgan o'qituvchi</th>
           <th scope="col">Ochilgan sana</th>
           <th scope="col">O'quvchilar</th>
@@ -35,7 +36,10 @@
           <th scope="row">{{ forloop.counter }}</th>
           <td>{{ group.name }}</td>
           <td>{{ group.vaqt }}</td>
+          <td>{{ group.price }}</td>
+          
           <td>{{ group.teacher }}</td>
+          
           <td>{{ group.acceptance_date }}<br>{{ student.email }}</td>
           <td><a href="{% url 'groups_students' pk=group.pk %}">Batafsil</a></td>
           <td><a href="{% url 'groups_update' pk=group.pk %}">Tahrirlash</a> / <a href="{% url 'groups_delete' pk=group.pk %}">O'chirish</a></td>

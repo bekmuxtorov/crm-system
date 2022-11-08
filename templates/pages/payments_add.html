@@ -7,13 +7,20 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="section-title">
-            <h3>O'quvchi qo'shish</h3>
+            <h3>To'lov qo'shish</h3>
         </div>
         <form action="" method="post" > {% csrf_token %}
             <div class="add_students mt-4">
                 <div class="first">
-                    <input  type="text" id="first_name" name="first_name" placeholder="Ismi va familiya" required>
-                    <input type="number" name="phone_number" id="phone_number" placeholder="Telefon raqam:" required>
+                    {% for student in students %}
+                    <select name="student" id="student">
+                        <option value="{{ student.id }}">{{ student.first_name }}</option>
+                    </select>
+                    {% endfor %}
+
+                    <input  type="date" id="from_period" name="from_period" placeholder="..dan" required>
+                    <input  type="date" id="do_period" name="do_period" placeholder="gacha.." required>
+                    <input type="number" name="price" id="price" placeholder="Kurs narxi:" value="{{  }}" required>
                     <input type="email" name="email" id="email" placeholder="Email manzil:" required>
                     <input type="text" name="shartnoma_raqam" id="shartnoma_raqam" placeholder="Shartnoma raqami:" required>
                     <input type="text" name="PINFL_number" id="PINFL_number" placeholder="PINFL raqam:" required>

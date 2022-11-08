@@ -33,7 +33,7 @@
         
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
-          <td>{{ student.first_name }}</td>
+          <td><a href="{% url 'student' pk=student.pk %}">{{ student.first_name }}</a></td>
           <td>{{ student.acceptance_group }}</td>
           <td>{{ student.phone_number }}<br>{{ student.email }}</td>
           <td>{{ student.acceptance_date }}</td>

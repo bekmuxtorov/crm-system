@@ -15,21 +15,31 @@
         <form action="" method="post" > {% csrf_token %}
             <div class="add_students mt-4">
                 <div class="first">
-                    <input  type="text" id="name" name="name" placeholder="Guruh nomi:" >
-                    <input type="text" name="vaqt" id="shartnoma_raqam" placeholder="Dars vaqti:">
+                    <input  type="text" id="name" name="name" placeholder="Guruh nomi:" required>
+                    <input type="text" name="vaqt" id="" placeholder="Dars vaqti:" required>
+                    <input type="text" name="duration" id="" placeholder="Dars davomiyligi:" required>
+                    <input type="number" name="price" id="price" placeholder="Dars narxi/oy:" required>
                 </div>
                 <div class="last">
                     <div>
                         <label for="teacher">Biriktirilgan o'qtuvchi:</label>
                         <select name="teacher" id="teacher">
                             {% for teacher in teachers %}                  
-                            <option value="{{ teacher.id }}">{{ teacher.first_name }} {{ teacher.last_name  }}</option>
+                            <option value="{{ teacher.id }}">{{ teacher.first_lastname }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="acceptance_date">Dars kunlari: </label>
+                        <select name="days" id="days">
+                            {% for key, value in days.items  %}
+                            <option value="{{ key }}">{{ value }}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div>
                         <label for="acceptance_date">Ochilgan kun: </label>
-                        <input type="date" name="acceptance_date" id="acceptance_date">
+                        <input type="date" name="acceptance_date" id="acceptance_date" required>
                     </div>
                 </div>
             </div>

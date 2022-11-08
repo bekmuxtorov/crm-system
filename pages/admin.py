@@ -13,7 +13,7 @@ class AdminGroup(admin.ModelAdmin):
 admin.site.register(models.Groups, AdminGroup)
 
 class AdminEmployess(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name']
+    list_display = ['first_lastname', 'phone_number', 'science', 'acceptance_date', 'pasport']
 admin.site.register(models.Employess, AdminEmployess)
 
 admin.site.register(models.Location)

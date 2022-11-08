@@ -1,5 +1,5 @@
 class Const():
-    regions = [
+   regions = [
        ('1', 'Qoraqalpog‘iston Respublikasi'),
        ('2', 'Andijon viloyati'),
        ('3', 'Buxoro viloyati'),
@@ -14,14 +14,17 @@ class Const():
        ('12', 'Farg‘ona viloyati'),
        ('13', 'Xorazm viloyati'),
        ('14', 'Toshkent shahri')
-    ]
+   ]
 
-    district = {
-       '12':
-       [
-           ('121', 'Quva'),
-           ('122', 'Rishton'),
-       ]
-    }
+   days = [
+      ('1', 'Har kuni'),
+      ('2', 'Juft kunlar'),
+      ('3', 'Toq kunlar')
+   ]
+
+
+
+
+
 
  

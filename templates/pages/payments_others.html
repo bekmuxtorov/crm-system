@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="uskunalar mb-3">
+            <form action="" method="post">
+                <input type="text" name="q" placeholder="Qidirish..." >
+                <input type="submit" value="Qidirish" class="btn btn-primary">
+            </form>
+            
+        </div>
+        <div class="section-title"><h4>To'lovchilar jadvali</h4></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ismi va Familiya</th>
+                    <th scope="col">Davr</th>
+                    <th scope="col">Narx</th>
+                    <th scope="col">Imtiyoz</th>
+                    <th scope="col">To'langan</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.acceptance_group }}</td>
+                    <td>{{ student.phone_number }}<br>{{ student.email }}</td>
+                    <td>{{ student.acceptance_date }}</td>
+                    {% if student.is_comleted %}
+                    <td> Tugatgan </td>
+                    {% else %}
+                    <td> Tugatmagan </td>
+                    {% endif %}
+                    
+                    <td><a href="{% url 'update_students' pk=student.pk %}">Tahrirlash</a> / <a href="{% url 'delete_students' pk=student.pk %}">O'chirish</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

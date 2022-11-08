@@ -1,0 +1,170 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block link %}{% static 'single_person.html' %}{% endblock link %}
+
+{% block content %}
+<section style="background-color: #eee; width: 100%;">
+  <div class="container py-2">  
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            {% if object.image %}
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+            class="rounded-circle img-fluid" style="width: 150px;">
+            {% else %}
+            <img src="{{ object.image.url }}" alt="avatar"
+            class="rounded-circle img-fluid" style="width: 150px;">
+            {% endif %}
+            <h5 class="my-3">{{ object.first_name }}</h5>
+            <p class="text-muted mb-1">O'quvchi</p>
+            <p class="text-muted mb-4">{{ object.region }}, {{ object.district }}</p>
+            <div class="d-flex justify-content-center mb-2">
+              <a type="button" class="btn btn-primary" href="{% url 'update_students' pk=object.pk %}">Tahrirlash<a  type="button" class="btn btn-danger ms-1" href="{% url 'delete_students' pk=object.pk %}">O'chirish</a>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <p class="mb-0">Login:</p>
+                <p class="mb-0">{{ object.username }}</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <p class="mb-0">Parol:</p>
+                <p class="mb-0">{{ object.parol }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">To'liq ismi</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.first_name }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Tel raqami</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.phone_number }}</p>
+              </div>
+            </div>
+            <hr>
+            
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.email }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Qabul qilingan guruh</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.acceptance_group }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Qabul qilingan sana</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.acceptance_date }}</p>
+              </div>
+            </div>
+            
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Shartnoma raqami</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.shartnoma_raqami }}</p>
+              </div>
+            </div>
+            
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">PINFL/Passport raqami:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.PINFL_number }}</p>
+              </div>
+            </div>
+            
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Manzil</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.region }}, {{ object.district }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Imtiyozi</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ object.freedom }} so'm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"> To'lov holati</p>
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">dan..</th>
+                      <th scope="col">gacha..</th>
+                      <th scope="col">Dars narxi(so'm) </th>
+                      <th scope="col">Imtiyoz(so'm) </th>
+                      <th scope="col">Tolanishi kerak(so'm) </th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>                    
+                    <tr>
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <td>{{ object.acceptance_date }}</td>
+                      <td>{{ object.acceptance_date }}</td>
+                      <td>{{ object.acceptance_group.price }}</td>
+                      <td>{{ object.freedom }}</td>
+                      <td>{{ object.get_price_money }}</td>
+                      <td>{{ 4 }}</td>
+
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

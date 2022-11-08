@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}{{ choose_group.name }} || To'lovlar{% endblock title %}
+
+{% block content %}
+<div class="main-panel">
+    
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ismi va Familiya</th>
+                {% for key, value in count.items %}
+                <th scope="col">{{ value }}</th>
+                {% endfor %}
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ student.first_name }}</td>
+                
+                <td></td>
+                <td></td>
+                
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
